@@ -1,0 +1,65 @@
+.release-grid {
+	display: grid;
+	gap: 1.25rem;
+	grid-template-columns: 1fr;
+}
+
+.release-card {
+	background: rgba(244, 239, 230, 0.04);
+	border: 1px solid var(--line);
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	transition: border-color var(--ease), transform var(--ease);
+}
+
+.release-card:hover,
+.release-card.featured {
+	border-color: var(--line-strong);
+}
+
+.release-card:hover { transform: translateY(-5px); }
+
+.release-card img {
+	aspect-ratio: 1;
+	display: block;
+	filter: saturate(0.7) contrast(1.08);
+	object-fit: cover;
+	width: 100%;
+}
+
+.release-info { padding: 1.35rem; }
+
+.release-card h2 {
+	font-family: var(--display);
+	font-size: clamp(2rem, 4vw, 3.5rem);
+	letter-spacing: 0.03em;
+	line-height: 0.9;
+	margin: 0;
+	padding: 1.35rem 1.35rem 1rem;
+}
+
+.release-description {
+	color: var(--muted);
+	font-size: 0.72rem;
+	line-height: 1.7;
+	margin: 1rem 0 1.5rem;
+}
+
+.spotify-link {
+	align-items: center;
+	border-top: 1px solid var(--line);
+	color: var(--paper);
+	display: flex;
+	font-size: 0.65rem;
+	font-weight: 700;
+	justify-content: space-between;
+	letter-spacing: 0.1em;
+	padding-top: 1rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.spotify-link span { color: var(--red); font-size: 1rem; }
+.spotify-link:hover { color: var(--red); }
+
