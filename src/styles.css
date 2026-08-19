@@ -1,1 +1,162 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+	--ink: #111110;
+	--paper: #f4efe6;
+	--muted: #a39d93;
+	--red: #ee4b35;
+	--line: rgba(244, 239, 230, 0.16);
+	--line-strong: rgba(244, 239, 230, 0.35);
+	--content-width: 1280px;
+	--gutter: clamp(1.25rem, 5vw, 5.5rem);
+	--ease: 180ms ease;
+	--display: 'Barlow Condensed', Impact, sans-serif;
+	--mono: 'DM Mono', Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+a, button { font: inherit; }
+html { background: var(--ink); }
+body {
+	background: var(--ink);
+	color: var(--paper);
+	font-family: var(--mono);
+	margin: 0;
+}
+
+.eyebrow {
+	color: var(--muted);
+	font-size: 0.66rem;
+	letter-spacing: 0.22em;
+	text-transform: uppercase;
+}
+
+.eyebrow span {
+	background: var(--red);
+	display: inline-block;
+	height: 7px;
+	margin-right: 0.7rem;
+	width: 7px;
+}
+
+.display-title {
+	font-family: var(--display);
+	font-size: clamp(5rem, 12vw, 10rem);
+	font-weight: 800;
+	letter-spacing: -0.025em;
+	line-height: 0.76;
+}
+
+.display-title em { color: var(--red); font-style: normal; }
+
+.page-shell {
+	margin: 0 auto;
+	max-width: var(--content-width);
+	min-height: calc(100vh - 150px);
+	padding: clamp(3.5rem, 8vw, 7rem) var(--gutter);
+}
+
+.page-heading {
+	align-items: end;
+	display: flex;
+	gap: 4rem;
+	justify-content: space-between;
+	margin-bottom: 4rem;
+}
+
+.page-heading .display-title { margin: 1.4rem 0 0; }
+
+.page-intro {
+	color: var(--muted);
+	font-size: 0.78rem;
+	line-height: 1.8;
+	margin: 0 0 0.5rem;
+	max-width: 300px;
+}
+
+.actions {
+	align-items: center;
+	display: flex;
+	gap: 1.8rem;
+	margin-top: 2.5rem;
+}
+
+.track-list { border-top: 1px solid var(--line-strong); }
+
+.track-row {
+	align-items: center;
+	border-bottom: 1px solid var(--line);
+	display: grid;
+	gap: 1.5rem;
+	grid-template-columns: 45px 1fr 70px 44px;
+	padding: 1.35rem 0;
+	transition: padding var(--ease), background var(--ease);
+}
+
+.track-row:hover,
+.track-row.featured {
+	background: rgba(244, 239, 230, 0.04);
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.track-number,
+.duration,
+.track-row p {
+	color: var(--muted);
+	font-size: 0.65rem;
+	letter-spacing: 0.1em;
+}
+
+.track-row h2 { font-family: var(--display); font-size: clamp(1.5rem, 3vw, 2.5rem); letter-spacing: 0.03em; margin: 0; }
+.track-row p { margin: 0.25rem 0 0; }
+
+.track-row button {
+	align-items: center;
+	background: transparent;
+	border: 1px solid var(--line-strong);
+	color: var(--paper);
+	cursor: pointer;
+	display: flex;
+	height: 38px;
+	justify-content: center;
+	transition: background var(--ease), color var(--ease);
+	width: 38px;
+}
+
+.track-row button:hover,
+.track-row.featured button { background: var(--red); border-color: var(--red); color: var(--ink); }
+
+.btn {
+	font-size: 0.7rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	padding: 1rem 1.25rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.btn.primary {
+	background: var(--red);
+	color: var(--ink);
+	transition: transform var(--ease), background var(--ease);
+}
+
+.btn.primary:hover { background: var(--paper); transform: translateY(-3px); }
+
+.text-link {
+	color: var(--paper);
+	font-size: 0.68rem;
+	letter-spacing: 0.1em;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.text-link span { color: var(--red); margin-left: 0.5rem; }
+
+@media (max-width: 700px) {
+	.page-heading { align-items: start; display: block; margin-bottom: 3rem; }
+	.page-intro { margin-top: 2rem; }
+	.track-row { gap: 0.75rem; grid-template-columns: 30px 1fr 38px; }
+	.duration { display: none; }
+}

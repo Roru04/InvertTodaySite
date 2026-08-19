@@ -1,8 +1,22 @@
-<nav>
-  <a routerLink="/home">Home</a>
-  <a routerLink="/songs">Songs</a>
-</nav>
+<header class="site-header">
+  <a class="brand" routerLink="/home" aria-label="Invert Today Startseite">
+    <span class="brand-mark">IT</span>
+    <span class="brand-name">INVERT<span>TODAY</span></span>
+  </a>
+
+  <nav class="site-nav" aria-label="Hauptnavigation">
+    <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    <a routerLink="/songs" routerLinkActive="active">Songs</a>
+  </nav>
+
+  <a class="header-cta" routerLink="/songs">Live hören <span aria-hidden="true">↗</span></a>
+</header>
 
 <main>
   <router-outlet></router-outlet>
 </main>
+
+<footer class="site-footer">
+<span>Invert Today / OUR SOUND. OUR RULES.</span>
+  <span>© 2024 Invert Today</span>
+</footer>

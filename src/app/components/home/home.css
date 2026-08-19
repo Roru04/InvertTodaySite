@@ -1,52 +1,35 @@
-.home-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 70vh;
-  background-color: #121212;
-  color: #ffffff;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-align: center;
-  padding: 20px;
+.home-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+  overflow: hidden;
+  padding-bottom: 2rem;
+  padding-top: clamp(3.5rem, 10vh, 7rem);
+  position: relative;
 }
 
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-  color: #ff4b4b; /* Ein cooles Rot/Pink als Akzentfarbe */
+.home-layout::before {
+  background: repeating-linear-gradient(135deg, transparent 0 32px, rgba(244,239,230,.045) 33px, transparent 34px);
+  content: '';
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
 }
 
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 40px;
-  color: #cccccc;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
+.hero-copy { align-self: center; position: relative; z-index: 1; }
+.hero-copy .display-title { font-size: clamp(6rem, 15vw, 12.5rem); margin: 2rem 0; }
+.hero-art { align-self: center; height: min(61vw, 590px); position: relative; }
+.sun { background: var(--red); border-radius: 50%; height: min(38vw, 380px); position: absolute; right: 7%; top: 11%; width: min(38vw, 380px); }
+.sun::after { border: 1px solid var(--paper); content: ''; inset: 10%; opacity: .35; position: absolute; }
+.vertical-word { bottom: 18%; color: var(--paper); font-family: var(--display); font-size: clamp(2rem, 4vw, 4rem); font-weight: 700; letter-spacing: .06em; position: absolute; right: -8%; transform: rotate(90deg); }
+.hero-stamp { border: 1px solid var(--paper); border-radius: 50%; color: var(--paper); font-family: var(--display); font-size: 1.3rem; font-weight: 700; line-height: .8; padding: 2.3rem 1rem; position: absolute; right: 18%; text-align: center; top: 4%; transform: rotate(12deg); width: 108px; }
+.hero-stamp span { color: var(--red); font-size: .8rem; }
+.hero-meta { bottom: 1.5rem; color: var(--muted); display: flex; font-size: .6rem; gap: 2rem; left: var(--gutter); letter-spacing: .16em; position: absolute; }
+.hero-meta strong { color: var(--paper); font-family: var(--display); font-size: 1.2rem; line-height: .8; }
 
-.btn {
-  display: inline-block;
-  padding: 12px 24px;
-  margin: 0 10px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: transform 0.2s, opacity 0.2s;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-  opacity: 0.9;
-}
-
-.btn.primary {
-  background-color: #ff4b4b;
-  color: white;
-}
-
-.btn.secondary {
-  background-color: transparent;
-  color: #ff4b4b;
-  border: 2px solid #ff4b4b;
+@media (max-width: 700px) {
+  .home-layout { grid-template-columns: 1fr; min-height: auto; padding-bottom: 5rem; }
+  .hero-art { height: 280px; margin-top: 1rem; }
+  .sun { height: 240px; right: 15%; width: 240px; }
+  .vertical-word { right: -2%; }
+  .hero-meta { bottom: 1rem; }
 }

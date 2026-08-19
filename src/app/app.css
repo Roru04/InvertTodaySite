@@ -1,0 +1,100 @@
+.site-header {
+	align-items: center;
+	border-bottom: 1px solid rgba(244, 239, 230, 0.12);
+	display: flex;
+	justify-content: space-between;
+	min-height: 84px;
+	padding: 0 var(--gutter);
+	position: relative;
+	z-index: 2;
+}
+
+.brand {
+	align-items: center;
+	color: var(--paper);
+	display: flex;
+	gap: 0.7rem;
+	text-decoration: none;
+}
+
+.brand-mark {
+	align-items: center;
+	background: var(--red);
+	color: var(--ink);
+	display: inline-flex;
+	font-family: var(--display);
+	font-size: 1.05rem;
+	height: 34px;
+	justify-content: center;
+	letter-spacing: 0.04em;
+	transform: skew(-10deg);
+	width: 34px;
+}
+
+.brand-name {
+	font-family: var(--display);
+	font-size: 1.3rem;
+	letter-spacing: 0.12em;
+}
+
+.brand-name span { color: var(--red); }
+
+.site-nav { display: flex; gap: clamp(1.25rem, 4vw, 3.5rem); }
+
+.site-nav a {
+	color: var(--muted);
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.18em;
+	padding: 0.85rem 0;
+	position: relative;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.site-nav a::after {
+	background: var(--red);
+	bottom: 0;
+	content: '';
+	height: 2px;
+	left: 0;
+	position: absolute;
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: transform 180ms ease;
+	width: 100%;
+}
+
+.site-nav a:hover, .site-nav a.active { color: var(--paper); }
+.site-nav a.active::after { transform: scaleX(1); }
+
+.header-cta {
+	border: 1px solid var(--line-strong);
+	color: var(--paper);
+	font-size: 0.68rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	padding: 0.75rem 1rem;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: background var(--ease), border-color var(--ease);
+}
+
+.header-cta:hover { background: var(--red); border-color: var(--red); color: var(--ink); }
+
+.site-footer {
+	color: var(--muted);
+	display: flex;
+	font-size: 0.63rem;
+	justify-content: space-between;
+	letter-spacing: 0.12em;
+	padding: 1.5rem var(--gutter);
+	text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+	.site-header { flex-wrap: wrap; gap: 1rem; padding-bottom: 1rem; padding-top: 1rem; }
+	.header-cta { display: none; }
+	.site-nav { order: 3; width: 100%; }
+	.site-footer { gap: 0.6rem; line-height: 1.5; }
+}
