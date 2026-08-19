@@ -1,0 +1,52 @@
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  background-color: #121212;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #ff4b4b; /* Ein cooles Rot/Pink als Akzentfarbe */
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  color: #cccccc;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  margin: 0 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  opacity: 0.9;
+}
+
+.btn.primary {
+  background-color: #ff4b4b;
+  color: white;
+}
+
+.btn.secondary {
+  background-color: transparent;
+  color: #ff4b4b;
+  border: 2px solid #ff4b4b;
+}
